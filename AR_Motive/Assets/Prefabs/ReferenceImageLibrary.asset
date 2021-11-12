@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5678522400668305086
+  m_GuidHigh: 6150881003117463993
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5566886478855824439
+      m_GuidHigh: 11412345704767314361
+    m_SerializedTextureGuid:
+      m_GuidLow: 1883820198068099388
+      m_GuidHigh: 17359256235354589739
+    m_Size: {x: 0.27, y: 0.122517675}
+    m_SpecifySize: 1
+    m_Name: Imola
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4835368978724587737
+      m_GuidHigh: 16852940037076285600
+    m_SerializedTextureGuid:
+      m_GuidLow: 8639094398726257765
+      m_GuidHigh: 13855221861193991115
+    m_Size: {x: 0.297, y: 0.223205}
+    m_SpecifySize: 1
+    m_Name: Monza
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5534749417160496969
+      m_GuidHigh: 17793154702127903632
+    m_SerializedTextureGuid:
+      m_GuidLow: 10926931914491741996
+      m_GuidHigh: 4447120111168998425
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: Qatar
+    m_Texture: {fileID: 0}
