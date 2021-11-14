@@ -20,6 +20,7 @@ public class ButtonCarController : MonoBehaviour
         Debug.Log(initialPos.x + ", " + initialPos.y);
         Debug.Log(altroBottoneinitialPos.x + ", " + altroBottoneinitialPos.y);
 
+
     }
 
     // Update is called once per frame
@@ -36,6 +37,8 @@ public class ButtonCarController : MonoBehaviour
             switch (pos)
             {
                 case 0:
+                    panelSelezione.transform.GetChild(0).transform.localPosition = new Vector2(0, 0);
+                    panelSelezione.transform.GetChild(1).transform.localPosition = new Vector2(-800, 0);
                     transform.LeanMoveLocal(new Vector2(0,400), 1).setEaseOutQuart();
                     altroBottone.transform.LeanMoveLocal(new Vector2(altroBottoneinitialPos.x, 400), 1).setEaseOutQuart();
                     panelSelezione.transform.LeanMoveLocalY(-119.5f, 1).setEaseOutQuart();
@@ -50,6 +53,8 @@ public class ButtonCarController : MonoBehaviour
                 case 2:
                     transform.LeanMoveLocal(new Vector2(0, 400), 1).setEaseOutQuart();
                     altroBottone.transform.LeanMoveLocal(new Vector2(altroBottoneinitialPos.x, 400), 1).setEaseOutQuart();
+                    panelSelezione.transform.GetChild(0).transform.LeanMoveLocal(new Vector2(0, 0), 1).setEaseOutQuart();
+                    panelSelezione.transform.GetChild(1).transform.LeanMoveLocal(new Vector2(-800, 0), 1).setEaseOutQuart();
                     pos = 1;
                     break;
 
@@ -61,6 +66,8 @@ public class ButtonCarController : MonoBehaviour
             switch (pos)
             {
                 case 0:
+                    panelSelezione.transform.GetChild(0).transform.localPosition = new Vector2(800, 0);
+                    panelSelezione.transform.GetChild(1).transform.localPosition = new Vector2(0, 0);
                     transform.LeanMoveLocal(new Vector2(0, 400), 1).setEaseOutQuart();
                     altroBottone.transform.LeanMoveLocal(new Vector2(altroBottoneinitialPos.x, 400), 1).setEaseOutQuart();
                     panelSelezione.transform.LeanMoveLocalY(-119.5f, 1).setEaseOutQuart();
@@ -69,6 +76,8 @@ public class ButtonCarController : MonoBehaviour
                 case 1:
                     transform.LeanMoveLocal(new Vector2(0, 400), 1).setEaseOutQuart();
                     altroBottone.transform.LeanMoveLocal(new Vector2(altroBottoneinitialPos.x, 400), 1).setEaseOutQuart();
+                    panelSelezione.transform.GetChild(0).transform.LeanMoveLocal(new Vector2(800, 0), 1).setEaseOutQuart();
+                    panelSelezione.transform.GetChild(1).transform.LeanMoveLocal(new Vector2(0, 0), 1).setEaseOutQuart();
                     pos = 2;
                     break;
                 case 2:
