@@ -21,6 +21,7 @@ public class MyCineDollyScript : MonoBehaviour
 
     ImageTrackingSettings its;
     CinemachineDollyCart cdc;
+    GameObject pista;
     Marce marciaCorrente=Marce.PrimaMarcia;
     float speed;
     Dictionary<Marce, float> maxMarce;
@@ -30,18 +31,21 @@ public class MyCineDollyScript : MonoBehaviour
     {
         maxMarce = new Dictionary<Marce, float>();
         maxMarce.Add(Marce.PrimaMarcia, 0.01f);
-        maxMarce.Add(Marce.SecondaMarcia, 0.02f);
-        maxMarce.Add(Marce.TerzaMarcia, 0.03f);
-        maxMarce.Add(Marce.QuartaMarcia, 0.04f);
-        maxMarce.Add(Marce.QuintaMarcia, 0.05f);
+        maxMarce.Add(Marce.SecondaMarcia, 0.03f);
+        maxMarce.Add(Marce.TerzaMarcia, 0.05f);
+        maxMarce.Add(Marce.QuartaMarcia, 0.07f);
+        maxMarce.Add(Marce.QuintaMarcia, 0.09f);
 
         its = GetComponent<ImageTrackingSettings>();
-        cdc = its.pistaInScena.transform.GetChild(0).transform.GetChild(1).GetComponent<CinemachineDollyCart>();
     }
 
     public void Accelera()
     {
-        myCor=StartCoroutine(AumentaVelocita());
+        if (its.pistaInScena != null)
+        {
+            cdc = its.pistaInScena.transform.GetChild(0).transform.GetChild(1).GetComponent<CinemachineDollyCart>();
+            myCor = StartCoroutine(AumentaVelocita());
+        }
     }
 
     public void CambiaMarcia()
@@ -73,19 +77,23 @@ public class MyCineDollyScript : MonoBehaviour
         while (speed <= maxMarce[marciaCorrente])
         {
             contagiri.fillAmount = speed / maxMarce[marciaCorrente];
-            switch (contagiri.fillAmount)
-            {
-                case 0.5f:
-                    contagiri.color = Color.yellow;
-                    break;
-                case 0.85f:
-                    contagiri.color = Color.red;
-                    break;
-            }
+
             speed += 0.001f;
             cdc.m_Speed = speed;
             Debug.Log("Speed priv: " + speed);
             yield return new WaitForSeconds(0.3f);
+        }
+    }
+    private void Update()
+    {
+        switch (contagiri.fillAmount)
+        {
+            case 0.5f:
+                contagiri.material.color = Color.yellow;
+                break;
+            case 0.85f:
+                contagiri.material.color = Color.red;
+                break;
         }
     }
 }
