@@ -17,6 +17,7 @@ public enum Marce
 public class MyCineDollyScript : MonoBehaviour
 {
     [SerializeField] Image contagiri;
+    [SerializeField] Text speedText;
     float acc;
 
     ImageTrackingSettings its;
@@ -24,6 +25,7 @@ public class MyCineDollyScript : MonoBehaviour
     GameObject pista;
     Marce marciaCorrente=Marce.PrimaMarcia;
     float speed;
+    float speedReal;
     Dictionary<Marce, float> maxMarce;
     Coroutine myCor;
 
@@ -52,9 +54,10 @@ public class MyCineDollyScript : MonoBehaviour
     {
         if (marciaCorrente != Marce.QuintaMarcia)
         {
-            StopCoroutine(myCor);
             marciaCorrente++;
         }
+        if(myCor!=null)
+            StopCoroutine(myCor);
         contagiri.fillAmount = speed / maxMarce[marciaCorrente];
         Debug.Log(marciaCorrente.ToString());
     }
@@ -80,8 +83,10 @@ public class MyCineDollyScript : MonoBehaviour
 
             speed += 0.001f;
             cdc.m_Speed = speed;
+            speedReal = (speed * 483) / maxMarce[Marce.QuintaMarcia];
+            speedText.text = Mathf.RoundToInt(speedReal).ToString() + " KM/H";
             Debug.Log("Speed priv: " + speed);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
     private void Update()
